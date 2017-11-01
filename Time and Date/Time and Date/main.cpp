@@ -52,7 +52,7 @@ int main()
 	while (i)
 	{
 		p_d+= 10;
-		i--;
+		--i;
 		Sleep(50);
 	}
 	*/
