@@ -1,17 +1,17 @@
 /*************************************************************************************
-            function:¸ÃÎÄ¼ş²âÊÔÒ»ÏÂµÚ¶şÕÂÖªÊ¶µã
-			×¢£ºÈ«²¿ÄÚÈİ¾ùÀ´×Ô:"Boost³ÌĞò¿âÍêÈ«¿ª·¢Ö¸ÄÏ"¸ÃÊéµÚÈı°æ
-            author£ºDemon
-			Time:2017/11/1                           
-***************************************************************************************/
+            function:è¯¥æ–‡ä»¶æµ‹è¯•ä¸€ä¸‹ç¬¬äºŒç« çŸ¥è¯†ç‚¹
+	    æ³¨ï¼šå…¨éƒ¨å†…å®¹å‡æ¥è‡ª:"Boostç¨‹åºåº“å®Œå…¨å¼€å‘æŒ‡å—"è¯¥ä¹¦ç¬¬ä¸‰ç‰ˆ
+            authorï¼šDemon
+	    Time:2017/11/1                           
+*************************************************************************************/
 #include<iostream>
 #include<Windows.h>
 #include<boost/timer.hpp>
 #include<boost/progress.hpp>
-//´¦ÀíÈÕÆÚ
+//å¤„ç†æ—¥æœŸ
 #include<boost/date_time/gregorian/gregorian.hpp>
 using namespace boost::gregorian;
-//´¦ÀíÊ±¼ä
+//å¤„ç†æ—¶é—´
 #include<boost/date_time/posix_time/posix_time.hpp>
 using namespace boost::posix_time;
 
@@ -20,34 +20,34 @@ using namespace boost;
 
 int main()
 {
-	//¡ï¡ï¡ï¡ïtimer¿â£¨¼ÆÊ±Æ÷timer,progress_timerºÍ½ø¶ÈÖ¸Ê¾Æ÷progress_display)
+	//â˜…â˜…â˜…â˜…timeråº“ï¼ˆè®¡æ—¶å™¨timer,progress_timerå’Œè¿›åº¦æŒ‡ç¤ºå™¨progress_display)
 
-	//¡ö1.timer×é¼ş
+	//â– 1.timerç»„ä»¶
 	/*
 	timer t;
-	cout << "ÕâÊÇtimerµÄÊ¹ÓÃ" << endl;
+	cout << "è¿™æ˜¯timerçš„ä½¿ç”¨" << endl;
 	cout << "t.elased_max=" << t.elapsed_max() << endl;
 	cout << "t.elased_min=" << t.elapsed_min() << endl;
 	cout << "t.elased=" << t.elapsed() << endl;
-	cout << "ÖØĞÂÉè¶¨¶¨Ê±Æ÷" << endl;
+	cout << "é‡æ–°è®¾å®šå®šæ—¶å™¨" << endl;
 	t.restart();
 	Sleep(1000);
-	cout << "´ËÊ±t.elased=" << t.elapsed() << endl;
+	cout << "æ­¤æ—¶t.elased=" << t.elapsed() << endl;
 	*/
 
-	//¡ö2.progress_timer(¼Ì³Ğtimer£©
+	//â– 2.progress_timer(ç»§æ‰¿timerï¼‰
 	/*
 	{
 		progress_timer p_t;
 		Sleep(200);
 	}
-	cout << "¶ÔÏóÎö¹¹×Ô¶¯Êä³öÊ±¼ä£¬ÈçÉÏ(Ä¬ÈÏµÄÖ¸¶¨Á÷ÊÇstd::cout)" << endl;
+	cout << "å¯¹è±¡ææ„è‡ªåŠ¨è¾“å‡ºæ—¶é—´ï¼Œå¦‚ä¸Š(é»˜è®¤çš„æŒ‡å®šæµæ˜¯std::cout)" << endl;
 	*/
 
-	//¡ö3.progress_display
+	//â– 3.progress_display
 	/*
 	//progress_display p_d(1000);
-	progress_display p_d(1000, std::cout, "°Ù·Ö±È", "¼òÊÓÍ¼", "½ø¶ÈÌõ");
+	progress_display p_d(1000, std::cout, "ç™¾åˆ†æ¯”", "ç®€è§†å›¾", "è¿›åº¦æ¡");
 	auto i = 100;
 	while (i)
 	{
@@ -58,22 +58,22 @@ int main()
 	*/
 
 
-	//¡ï¡ï¡ï¡ïdate_time¿â
+	//â˜…â˜…â˜…â˜…date_timeåº“
 	/*
-	//¡ô1.¹¹½¨ÈÕÆÚ¶ÔÏó
+	//â—†1.æ„å»ºæ—¥æœŸå¯¹è±¡
 	date d1;
 	date d2(2017, 11, 1);
 	date d3(2017, Nov, 1);
 	date d_copy(d3);
-	//Ê¹ÓÃº¯Êıfrom_string£¬£¨Ğ±¸Ü»òÕßÁ¬×Ö·û£©¡£from_undelimited_string£¬(´¿×Ö·û´®)
+	//ä½¿ç”¨å‡½æ•°from_stringï¼Œï¼ˆæ–œæ æˆ–è€…è¿å­—ç¬¦ï¼‰ã€‚from_undelimited_stringï¼Œ(çº¯å­—ç¬¦ä¸²)
 	date d_f_s = from_string("2017-11-1");
 	date d_f_s1 = from_string("2017/11/1");
 	date d_f_u_s = from_undelimited_string("20171101");
-	//±È½ÏºÍ¸³Öµ
-	assert(d1 == date(not_a_date_time));//±È½ÏÒ»¸öÁÙÊ±¶ÔÏó
+	//æ¯”è¾ƒå’Œèµ‹å€¼
+	assert(d1 == date(not_a_date_time));//æ¯”è¾ƒä¸€ä¸ªä¸´æ—¶å¯¹è±¡
 	assert(d2 == d3);
 	assert(!(d2 <d_copy));
-	//¡ô2.·ÃÎÊÈÕÆÚ
+	//â—†2.è®¿é—®æ—¥æœŸ
 	assert(d2.year() == 2017);
 	assert(d2.month() == 11);
 	date::ymd_type ymd = d2.year_month_day();
@@ -82,30 +82,30 @@ int main()
 	assert(ymd.day == 1);
 	auto d_o_w = d2.day_of_week();
 	auto d_o_y = d2.day_of_year();
-	auto d_end_m = d2.end_of_month();//·µ»Ø¸ÃÔÂ×îºóÒ»ÌìµÄdate¶ÔÏó
-	cout << "µÚ¼¸ÖÜ:" << d_o_w << endl;
-	cout << "µÚ¼¸Ìì£º" << d_o_y << endl;
+	auto d_end_m = d2.end_of_month();//è¿”å›è¯¥æœˆæœ€åä¸€å¤©çš„dateå¯¹è±¡
+	cout << "ç¬¬å‡ å‘¨:" << d_o_w << endl;
+	cout << "ç¬¬å‡ å¤©ï¼š" << d_o_y << endl;
 
-	//¡ô3¡£ÈÕÆÚÊä³ö(to_simple_string,×ª»¯ÎªYYY-mmm-DD¸ñÊ½.
-    //            to_iso_string×ª»¯ÎªYYYYMMDD¸ñÊ½µÄÊı×Ö×Ö·û´®.
-	//            to_iso_extended_string,×ª»¯ÎªYYYY-MM-DD¸ñÊ½µÄÊı×Ö×Ö·û´®£©
+	//â—†3ã€‚æ—¥æœŸè¾“å‡º(to_simple_string,è½¬åŒ–ä¸ºYYY-mmm-DDæ ¼å¼.
+    //            to_iso_stringè½¬åŒ–ä¸ºYYYYMMDDæ ¼å¼çš„æ•°å­—å­—ç¬¦ä¸².
+	//            to_iso_extended_string,è½¬åŒ–ä¸ºYYYY-MM-DDæ ¼å¼çš„æ•°å­—å­—ç¬¦ä¸²ï¼‰
 	cout << to_simple_string(d1) << endl;
 	cout << to_simple_string(d2) << endl;;
 	cout << to_iso_string(d2) << endl;
 	cout << to_iso_extended_string(d2) << endl;
 
-	//¡ô4.dateºÍtm»¥Ïà×ª»¯¡£to_tm,date_from_tm
+	//â—†4.dateå’Œtmäº’ç›¸è½¬åŒ–ã€‚to_tm,date_from_tm
 	date d22(2017, 10, 29);
-	cout << "date×ªtm" << endl;
+	cout << "dateè½¬tm" << endl;
 	tm t_m = to_tm(d22);
-	cout << t_m.tm_year<< endl;//»¹²»ÊÇºÜÇå³şÈçºÎÊä³ö£¬ÏÂ´Î¸ÄÒ»ÏÂ£¿£¿£¿£¿£¿£¿£¿
+	cout << t_m.tm_year<< endl;//è¿˜ä¸æ˜¯å¾ˆæ¸…æ¥šå¦‚ä½•è¾“å‡ºï¼Œä¸‹æ¬¡æ”¹ä¸€ä¸‹ï¼Ÿï¼Ÿï¼Ÿï¼Ÿï¼Ÿï¼Ÿï¼Ÿ
 	cout << t_m.tm_mon << endl;
 	cout << t_m.tm_mday << endl;
 	cout << "t_m.tm.yday=" << t_m.tm_yday << endl;
-	cout << "tm_hour,tm_min,tm_secÎª0" << endl;
+	cout << "tm_hour,tm_min,tm_secä¸º0" << endl;
 	cout << "t_m.tm_hour=" << t_m.tm_hour << endl;
 	*/
 
-	cout << "Ã»ÓĞĞ´Íê£¬¸ÄÌìÔÙĞ´¡£" << endl;
+	cout << "æ²¡æœ‰å†™å®Œï¼Œæ”¹å¤©å†å†™ã€‚" << endl;
 	return 0;
 }
