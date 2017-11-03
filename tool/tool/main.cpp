@@ -1,9 +1,9 @@
 /*************************************************************
-            funtion:ÊìÏ¤Ò»ÏÂµÚËÄÕÂÖªÊ¶µã
-			×¢£ºÈ«²¿ÄÚÈİÀ´×Ô"Boost³ÌĞò¿âÍêÈ«¿ª·¢Ö¸ÄÏ"
-			    µÚÈı°æ£¨×÷Õß£¬ÂŞ½£·æ£©
-			author:Demon
-			Time:2017/11/3
+            funtion:ç†Ÿæ‚‰ä¸€ä¸‹ç¬¬å››ç« çŸ¥è¯†ç‚¹
+	    æ³¨ï¼šå…¨éƒ¨å†…å®¹æ¥è‡ª"Boostç¨‹åºåº“å®Œå…¨å¼€å‘æŒ‡å—"
+	        ç¬¬ä¸‰ç‰ˆï¼ˆä½œè€…ï¼Œç½—å‰‘é”‹ï¼‰
+	    author:Demon
+	    Time:2017/11/3
 *************************************************************/
 #include<iostream>
 #include<exception>
@@ -11,15 +11,15 @@
 #include<boost/throw_exception.hpp>
 using namespace std;
 using namespace boost;
-//Ğé¼Ì³Ğboost::exception
+//è™šç»§æ‰¿boost::exception
 struct myexception :virtual std::exception, virtual boost::exception
 {
 };
-//Ê¹ÓÃboost::error_info
+//ä½¿ç”¨boost::error_info
 typedef  boost::error_info<struct tag_err_no, int> err_no;
 typedef  boost::error_info<struct tag_err_str, std::string> err_str;
 
-//²âÊÔÊ¹ÓÃenable_error_if(T&e)
+//æµ‹è¯•ä½¿ç”¨enable_error_if(T&e)
 struct myexception_a1
 {
 
@@ -29,20 +29,20 @@ int main()
 {
 
 
-	//¡ïexception´¦Àí»úÖÆ
+	//â˜…exceptionå¤„ç†æœºåˆ¶
 	/*
-	   C++±ê×¼¶¨ÒåµÄÒì³£»úÖÆ£ºstd::exception£¬try/catch/throw
-	   std::exceptionÅÉÉú×ÓÀà£ºbad_alloc,bad_cast,out_of_range...
+	   C++æ ‡å‡†å®šä¹‰çš„å¼‚å¸¸æœºåˆ¶ï¼šstd::exceptionï¼Œtry/catch/throw
+	   std::exceptionæ´¾ç”Ÿå­ç±»ï¼šbad_alloc,bad_cast,out_of_range...
 
-	  Boost¿âµÄÒì³£´¦Àí»úÖÆ£ºboost::exception£¨°üº¬Á½¸öÒì³£Àà£©
+	  Booståº“çš„å¼‚å¸¸å¤„ç†æœºåˆ¶ï¼šboost::exceptionï¼ˆåŒ…å«ä¸¤ä¸ªå¼‚å¸¸ç±»ï¼‰
 
-					  { 1.exception(³éÏóÀà£¬³ıÁËËü×ÓÀà£¬ÈÎºÎÈË¶¼²»¿ÉÒÔ´´½¨¶ÔÏó£©
+					  { 1.exception(æŠ½è±¡ç±»ï¼Œé™¤äº†å®ƒå­ç±»ï¼Œä»»ä½•äººéƒ½ä¸å¯ä»¥åˆ›å»ºå¯¹è±¡ï¼‰
 	  boost::exception{
 					  { 2.error_info
 
 	*/
 
-	//1.¼òµ¥Ó¦ÓÃ
+	//1.ç®€å•åº”ç”¨
 	/*
 	try
 	{
@@ -54,7 +54,7 @@ int main()
 		{
 			cout << *get_error_info<err_no>(e) << endl;
 			cout << e.what() << endl;
-			e << err_str("ÔÙ´ÎÅ×³öÒì³£");
+			e << err_str("å†æ¬¡æŠ›å‡ºå¼‚å¸¸");
 			throw e;
 		}
 
@@ -66,9 +66,9 @@ int main()
 	}
 	*/
 
-	//2.ĞÅÏ¢´íÎóÀà£¨¿ÉÒÔ×Ô¶¨Òå£©
+	//2.ä¿¡æ¯é”™è¯¯ç±»ï¼ˆå¯ä»¥è‡ªå®šä¹‰ï¼‰
 	
-	//boost¿âÔ¤¶¨ÒåÀàĞÍ typedef error_info<...> throw_function/throw_file/throw_line  ...
+	//booståº“é¢„å®šä¹‰ç±»å‹ typedef error_info<...> throw_function/throw_file/throw_line  ...
 	
 	/*try
 	{
@@ -85,13 +85,13 @@ int main()
 	*/
 	
 	
-	//×Ô¶¨ÒåÀàĞÍ
+	//è‡ªå®šä¹‰ç±»å‹
 	/*
-    #define myerror(type,name) typedef boost::error_info<struct tag_##name,type> err_double
+        #define myerror(type,name) typedef boost::error_info<struct tag_##name,type> err_double
 	myerror(double,err_dou);
 	try
 	{
-		throw myexception() <<err_str("Å×³ö×Ô¶¨Òå´íÎó")<< err_double(66.66);
+		throw myexception() <<err_str("æŠ›å‡ºè‡ªå®šä¹‰é”™è¯¯")<< err_double(66.66);
 	}
 	catch (myexception&e)
 	{  
@@ -100,26 +100,26 @@ int main()
 	}
 	*/
 
-	//3.°ü×°±ê×¼Òì³££¨Ê¹ÓÃÄ£°æº¯Êıenable_error_info(T&e),TÎª±ê×¼Òì³£Àà»òÕßÆäËü×Ô¶¨ÒåÀàĞÍ£©
+	//3.åŒ…è£…æ ‡å‡†å¼‚å¸¸ï¼ˆä½¿ç”¨æ¨¡ç‰ˆå‡½æ•°enable_error_info(T&e),Tä¸ºæ ‡å‡†å¼‚å¸¸ç±»æˆ–è€…å…¶å®ƒè‡ªå®šä¹‰ç±»å‹ï¼‰
 	/*
 	try
 	{
-		throw enable_error_info(myexception_a1()) << err_str("²âÊÔÊ¹ÓÃenable_error_info°ü×°±ê×¢Òì³£");
+		throw enable_error_info(myexception_a1()) << err_str("æµ‹è¯•ä½¿ç”¨enable_error_infoåŒ…è£…æ ‡æ³¨å¼‚å¸¸");
 	}
-	catch (boost::exception&e)//ÕâÀïÒ»¶¨ÒªÊÇÓĞboost::exception²¶»ñÒì³£
+	catch (boost::exception&e)//è¿™é‡Œä¸€å®šè¦æ˜¯æœ‰boost::exceptionæ•è·å¼‚å¸¸
 	{
 		cout << *get_error_info<err_str>(e) << endl;
 	}
     */
 
-	//4.Ê¹ÓÃº¯ÊıÅ×³öÒì³£(throw_exception,ÓĞ´ıÑ§Ï°£©
+	//4.ä½¿ç”¨å‡½æ•°æŠ›å‡ºå¼‚å¸¸(throw_exception,æœ‰å¾…å­¦ä¹ ï¼‰
 	
 
-	//diagnostic_informationºÍBOOST_THROW_EXCEPTIONÊ¹ÓÃ
+	//diagnostic_informationå’ŒBOOST_THROW_EXCEPTIONä½¿ç”¨
 	/*
 	try
 	{
-		throw enable_error_info(myexception_a1()) << err_str("Å×³öÒì³£") << err_no(666);
+		throw enable_error_info(myexception_a1()) << err_str("æŠ›å‡ºå¼‚å¸¸") << err_no(666);
 	}
 	catch (boost::exception&e)
 	{
@@ -127,7 +127,7 @@ int main()
 	}
 	try
 	{
-		BOOST_THROW_EXCEPTION(std::logic_error("logic error"));//×¢Òâ£¬ÔÚÕâÀï±ØĞëÊÇ±ê×¼Òì³£
+		BOOST_THROW_EXCEPTION(std::logic_error("logic error"));//æ³¨æ„ï¼Œåœ¨è¿™é‡Œå¿…é¡»æ˜¯æ ‡å‡†å¼‚å¸¸
 	}
 	catch (boost::exception&e)
 	{
@@ -135,6 +135,6 @@ int main()
 	}
 	*/
    
-    cout << "½ñÌì¾ÍĞ´µ½ÕâÀï£¬¸ÄÌìÓĞ¿ÕÔÙĞ´.ÊÕ¹¤ÊÕ¹¤¡ß" << endl;
-	return 0;
+    cout << "ä»Šå¤©å°±å†™åˆ°è¿™é‡Œï¼Œæ”¹å¤©æœ‰ç©ºå†å†™.æ”¶å·¥æ”¶å·¥âˆµ" << endl;
+    return 0;
 }
