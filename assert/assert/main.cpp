@@ -1,10 +1,10 @@
 /*****************************************************
-        function:Ö÷ÒªÑ§Ï°assert(µÚÁùÕÂ£©
-		author:Demon
-		time:2017/11/4
+        function:ä¸»è¦å­¦ä¹ assert(ç¬¬å…­ç« ï¼‰
+	author:Demon
+	time:2017/11/4
 *****************************************************/
-//#define BOOST_DISABLE_ASSERTS//½ûÓÃ¶ÏÑÔ
-//#define BOOST_ENABLE_ASSERT_HANDLER//»áµ¼ÖÂBOOST_ASSERT,BOOST_ASSERT_MSGÐÐÎª±ä»¯
+//#define BOOST_DISABLE_ASSERTS//ç¦ç”¨æ–­è¨€
+//#define BOOST_ENABLE_ASSERT_HANDLER//ä¼šå¯¼è‡´BOOST_ASSERT,BOOST_ASSERT_MSGè¡Œä¸ºå˜åŒ–
 #include<iostream>
 #include<cassert>
 #include<boost/assert.hpp>
@@ -17,7 +17,7 @@
 
 using namespace std;
 using namespace boost;
-//×Ô¼ºÊµÏÖboostµÄassertion_failed,ºÍassertion_failed_msg
+//è‡ªå·±å®žçŽ°boostçš„assertion_failed,å’Œassertion_failed_msg
 /*
 void f(int x)
 {
@@ -25,7 +25,7 @@ void f(int x)
 }
 void f_msg(int x)
 {
-	BOOST_ASSERT_MSG(x != 0,"BOOST_ASSERT_MSG¶ÏÑÔ");
+	BOOST_ASSERT_MSG(x != 0,"BOOST_ASSERT_MSGæ–­è¨€");
 }
 namespace boost
 {
@@ -54,14 +54,14 @@ void test()
 
 }
 */
-//execution_monitor¿ÉÒÔ¼à¿Ø·µ»ØÖµÎªint»òÕß¿É×ª»¯ÎªintµÄº¯Êý
+//execution_monitorå¯ä»¥ç›‘æŽ§è¿”å›žå€¼ä¸ºintæˆ–è€…å¯è½¬åŒ–ä¸ºintçš„å‡½æ•°
 /*
 int e_m()
 {
-	string str("ÎÒÊÇstring");
-	throw "ÎÒÊÇC×Ö·û´®Òì³£";//Å×³öÒì³£±ØÐëÊÇÕâÈýÖÖ£º1.C×Ö·û´® 2.std::string 3.std::exception²Å¿ÉÒÔ±»execution_exception´¦Àí
+	string str("æˆ‘æ˜¯string");
+	throw "æˆ‘æ˜¯Cå­—ç¬¦ä¸²å¼‚å¸¸";//æŠ›å‡ºå¼‚å¸¸å¿…é¡»æ˜¯è¿™ä¸‰ç§ï¼š1.Cå­—ç¬¦ä¸² 2.std::string 3.std::exceptionæ‰å¯ä»¥è¢«execution_exceptionå¤„ç†
 	//throw str;
-	//throw std::logic_error("ÎÒÊÇstd::exceptionÒì³£");
+	//throw std::logic_error("æˆ‘æ˜¯std::exceptionå¼‚å¸¸");
 	return 1;
 }
 */
@@ -72,56 +72,56 @@ int main()
 	//1.assert
 	/*
 	BOOST_ASSERT(8 == 8);
-	BOOST_ASSERT_MSG(8 == 7, "8²»µÈÓÚ7");
+	BOOST_ASSERT_MSG(8 == 7, "8ä¸ç­‰äºŽ7");
 	*/
 
-	//2.½ûÓÃboost¶ÏÑÔ£¨Í·ÎÄ¼þÇ°Ãæ¶¨ÒåBOOST_DISABLE_ASSERTS)
+	//2.ç¦ç”¨boostæ–­è¨€ï¼ˆå¤´æ–‡ä»¶å‰é¢å®šä¹‰BOOST_DISABLE_ASSERTS)
 	/*
 	BOOST_ASSERT(1 == 2);
-	BOOST_ASSERT_MSG(1 == 2, "½ûÓÃ¶ÏÑÔ£¬boost¶ÏÑÔ²»¿ÉÒÔÓÃ£¬±ê×¼assert²»Ó°Ïì");
+	BOOST_ASSERT_MSG(1 == 2, "ç¦ç”¨æ–­è¨€ï¼Œboostæ–­è¨€ä¸å¯ä»¥ç”¨ï¼Œæ ‡å‡†assertä¸å½±å“");
 	assert(1 == 2);
 	*/
 
-	//3.BOOST_ENABLE_ASSERT_HANDLERµÄ¶¨Òå¶ÔBOOST_ASSERTÓ°Ïì
-	//(×Ô¼ºÊµÏÖboostµÄassertion_failed,ºÍassertion_failed_msgº¯Êý£¬»á×Ô¶¯µ÷ÓÃ£©
+	//3.BOOST_ENABLE_ASSERT_HANDLERçš„å®šä¹‰å¯¹BOOST_ASSERTå½±å“
+	//(è‡ªå·±å®žçŽ°boostçš„assertion_failed,å’Œassertion_failed_msgå‡½æ•°ï¼Œä¼šè‡ªåŠ¨è°ƒç”¨ï¼‰
 	/*
 	BOOST_ASSERT(1 == 2);
 	f(0);
 	f_msg(0);
 	*/
 
-	//4.static_assert(±àÒëÊ±¶ÏÑÔ£¬asserºêÊÇÔËÐÐÊ±¶ÏÑÔ)
-	//BOOST_STATIC_ASSERTºÍBOOST_STATIC_ASSERT_MSG,Èç¹û±àÒëÆ÷²»Ö§³Östatic_assert,
-	//BOOST_STATIC_ASSERT_MSGµÈÍ¬ÓÚBOOST_STATIC_ASSERT
+	//4.static_assert(ç¼–è¯‘æ—¶æ–­è¨€ï¼Œasserå®æ˜¯è¿è¡Œæ—¶æ–­è¨€)
+	//BOOST_STATIC_ASSERTå’ŒBOOST_STATIC_ASSERT_MSG,å¦‚æžœç¼–è¯‘å™¨ä¸æ”¯æŒstatic_assert,
+	//BOOST_STATIC_ASSERT_MSGç­‰åŒäºŽBOOST_STATIC_ASSERT
 	/*
 	BOOST_STATIC_ASSERT(1 == 2);
 	BOOST_STATIC_ASSERT(1 == 1);
-	BOOST_STATIC_ASSERT_MSG(1 == 2£¬"66");//²»Ö§³Ö
-	BOOST_STATIC_ASSERT_MSG(1 == 1£¬"77");
+	BOOST_STATIC_ASSERT_MSG(1 == 2ï¼Œ"66");//ä¸æ”¯æŒ
+	BOOST_STATIC_ASSERT_MSG(1 == 1ï¼Œ"77");
 	*/
 
-	//5.lightweight_test(5¸ö£¬¼ÇµÃreturn boost::report_errors()£¬¸Ð¾õÍ¦ºÃµÄ£©
+	//5.lightweight_test(5ä¸ªï¼Œè®°å¾—return boost::report_errors()ï¼Œæ„Ÿè§‰æŒºå¥½çš„ï¼‰
 	/*
 	BOOST_TEST(1 == 2);
-	BOOST_ERROR("¶ÏÑÔÊ§°Ü£¡");
-	BOOST_TEST_EQ(1, 2);//ÅÐ¶ÏÁ½¸ö±í´ïÊ½ÏàµÈ
-	BOOST_TEST_NE(1, 1);//ÅÐ¶ÏÁ½¸ö±í´ïÊ½²»ÏàµÈ
+	BOOST_ERROR("æ–­è¨€å¤±è´¥ï¼");
+	BOOST_TEST_EQ(1, 2);//åˆ¤æ–­ä¸¤ä¸ªè¡¨è¾¾å¼ç›¸ç­‰
+	BOOST_TEST_NE(1, 1);//åˆ¤æ–­ä¸¤ä¸ªè¡¨è¾¾å¼ä¸ç›¸ç­‰
 	BOOST_TEST_THROWS(1 == 2,std::exception);
-	return boost::report_errors();//ÕâÑù×Ó¾Í³ÌÐò¾Í²»»áÖÐ¶Ï,Êä³ö´íÎóÐÅÏ¢
+	return boost::report_errors();//è¿™æ ·å­å°±ç¨‹åºå°±ä¸ä¼šä¸­æ–­,è¾“å‡ºé”™è¯¯ä¿¡æ¯
 	*/
 
-	//6.²âÊÔÔª±à³Ì(BOOST_TEST_TRAIT_FALSE/TRUEºêµÄÊ¹ÓÃ£©
+	//6.æµ‹è¯•å…ƒç¼–ç¨‹(BOOST_TEST_TRAIT_FALSE/TRUEå®çš„ä½¿ç”¨ï¼‰
 	/*
 	BOOST_TEST_TRAIT_FALSE((is_integral<int>));
 	BOOST_TEST_TRAIT_TRUE((is_function<int>));
 	return boost::report_errors();
-    */
+        */
 
-	//7.Ô¤²â¶ÏÑÔ(BOOST_CHECK,BOOST_REQUIRE,BOOST_ERROR,BOOST_FAIL)(»¹²»ÔõÃ´ÊìÏ¤£¬µ½Ê±ºòÔÚ¿´¿´£¿£¿£¿£¿£¿£¿£©
+	//7.é¢„æµ‹æ–­è¨€(BOOST_CHECK,BOOST_REQUIRE,BOOST_ERROR,BOOST_FAIL)(è¿˜ä¸æ€Žä¹ˆç†Ÿæ‚‰ï¼Œåˆ°æ—¶å€™åœ¨çœ‹çœ‹ï¼Ÿï¼Ÿï¼Ÿï¼Ÿï¼Ÿï¼Ÿï¼‰
 
-    //8.²âÊÔÈÕÖ¾
+        //8.æµ‹è¯•æ—¥å¿—
 
-	//9.º¯ÊýÖ´ÐÐ¼àÊÓÆ÷£¨exception_monitor)
+	//9.å‡½æ•°æ‰§è¡Œç›‘è§†å™¨ï¼ˆexception_monitor)
 	/*
 	boost::execution_monitor em;
 	try
@@ -140,7 +140,7 @@ int main()
 	}
 	catch (...)
 	{
-		cout << "¸ÄÌìÓÐ¿ÕÔÙÐ´Òì³££¬ÏÖÔÚ²»ÏëÐ´ÁË¡£ÊÕ¹¤ÊÕ¹¤¡ß" << endl;
+		cout << "æ”¹å¤©æœ‰ç©ºå†å†™å¼‚å¸¸ï¼ŒçŽ°åœ¨ä¸æƒ³å†™äº†ã€‚æ”¶å·¥æ”¶å·¥âˆµ" << endl;
 	}
 	
 	return 0;
