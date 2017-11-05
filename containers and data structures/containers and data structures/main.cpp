@@ -133,8 +133,8 @@ int main()
 	vector<boost::any> v;
 	any i(1);
 	any s(string("令狐冲"));//记得如果是string，不能写成any s("令狐冲");这是C字符串。要区别开来
-	any d(66.64);//这个是C字符串
-	any c("逍遥");
+	any d(66.64);
+	any c("逍遥");//这个是C字符串
 	v.push_back(i);
 	v.push_back(s);
 	v.push_back(d);
@@ -142,6 +142,7 @@ int main()
 	cout << any_cast<int>(i) << endl;
 	cout << any_cast<std::string>(s) << endl;
 	cout << any_cast<double>(d) << endl;
+	cout << any_cast<char const*>(v[3])<<endl;
 	*/
 
        cout << "有空再写" << endl;
