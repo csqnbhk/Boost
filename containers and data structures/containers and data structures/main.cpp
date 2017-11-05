@@ -1,7 +1,7 @@
 /*************************************************************
-         function:ÊìÏ¤Ò»ÏÂµÚÆßÕÂ"ÈİÆ÷ºÍÊı¾İ½á¹¹"
-		 author£ºDemon
-		 Time:2017/11/5
+             function:ç†Ÿæ‚‰ä¸€ä¸‹ç¬¬ä¸ƒç« "å®¹å™¨å’Œæ•°æ®ç»“æ„"
+	     authorï¼šDemon
+	     Time:2017/11/5
 *************************************************************/
 #include<iostream>
 #include<vector>
@@ -19,7 +19,7 @@ using namespace std;
 int main()
 {
 
-	//1.boost::array(²»ÄÜ¶¯Ì¬¸Ä±ä´óĞ¡£¬ÒÑÖªÊı×é´óĞ¡£©
+	//1.boost::array(ä¸èƒ½åŠ¨æ€æ”¹å˜å¤§å°ï¼Œå·²çŸ¥æ•°ç»„å¤§å°ï¼‰
 	/*
 	boost::array<int,5> a;
 	a.assign(66);
@@ -41,45 +41,45 @@ int main()
 	cout << endl;
 	*/
 
-	//2.boost::dynamic_bitset,¿ÉÒÔ¶¯Ì¬Ôö¼Ó¡£(C++±ê×¼´¦Àí¶ş½øÖÆÊı¾İ£¬vector<bool>£¨Õâ¸ö¼ÇµÃ×¢Òâ£©ºÍbitset£©
+	//2.boost::dynamic_bitset,å¯ä»¥åŠ¨æ€å¢åŠ ã€‚(C++æ ‡å‡†å¤„ç†äºŒè¿›åˆ¶æ•°æ®ï¼Œvector<bool>ï¼ˆè¿™ä¸ªè®°å¾—æ³¨æ„ï¼‰å’Œbitsetï¼‰
 	/*
 	dynamic_bitset<> db1;
 	dynamic_bitset<> db2(10);
-	dynamic_bitset<> db3(string("110"));//×¢Òâ£¬ÒªÇóÊÇstring£¬²»ÄÜÊÇC×Ö·û´®
+	dynamic_bitset<> db3(string("110"));//æ³¨æ„ï¼Œè¦æ±‚æ˜¯stringï¼Œä¸èƒ½æ˜¯Cå­—ç¬¦ä¸²
 	dynamic_bitset<> db4(0x10, BOOST_BINARY(10010));
 	cout << "db1.size():" << db1.size()<<"  "<<db1<< endl;
 	cout << "db2.size():" << db2.size()<<"  "<<db2<< endl;
 	cout << "db3.size():" << db3.size()<<"  "<<db3<< endl;
 	cout << "db4.size():" << db4.size()<<"  "<<db4<<endl;
-	db4.resize(6);   //ËõĞ¡´óĞ¡
+	db4.resize(6);   //ç¼©å°å¤§å°
 	cout << "db4.size():" << db4.size() << "  " << db4 << endl;
-	db4.clear();     //Çå¿Õ£¬´ËÊ±´óĞ¡Îª0
+	db4.clear();     //æ¸…ç©ºï¼Œæ­¤æ—¶å¤§å°ä¸º0
 	cout << "db4.size():" << db4.size() << "  " << db4 << endl;
-	db4.push_back(1);//´æÈëÔªËØ£¬¶¯Ì¬Ôö¼Ó
+	db4.push_back(1);//å­˜å…¥å…ƒç´ ï¼ŒåŠ¨æ€å¢åŠ 
 	db4.push_back(0);
 	db4.push_back(1);
 	cout << "db4.size():" << db4.size() << "  " << db4 << endl;
-	//·ÃÎÊÔªËØtest,¼ì²éÄ³¸öÎ»ÊÇ·ñÎª1
+	//è®¿é—®å…ƒç´ test,æ£€æŸ¥æŸä¸ªä½æ˜¯å¦ä¸º1
 	cout << db4.test(0) << endl;
 	cout << db4.test(1) << endl;
-	//²âÊÔÊÇ·ñ´æÔÚ1£¬´æÔÚ·µ»Øtrue
+	//æµ‹è¯•æ˜¯å¦å­˜åœ¨1ï¼Œå­˜åœ¨è¿”å›true
 	cout << db4.any() << endl;
-	//²âÊÔ²»´æÔÚ1£¬none()·µ»Øtrue
+	//æµ‹è¯•ä¸å­˜åœ¨1ï¼Œnone()è¿”å›true
 	cout << db4.none() << endl;
-	//Í³¼Æ1µÄÔªËØÊıÁ¿
+	//ç»Ÿè®¡1çš„å…ƒç´ æ•°é‡
 	cout << db4.count() << endl;
-	//setº¯Êı¿ÉÒÔ°ÑÈ«²¿»òÕßÌØµãÎ»ÖÃÖµÉèÖÃÎª1»òÕß0
-	db4.set();//È«²¿Îª1
+	//setå‡½æ•°å¯ä»¥æŠŠå…¨éƒ¨æˆ–è€…ç‰¹ç‚¹ä½ç½®å€¼è®¾ç½®ä¸º1æˆ–è€…0
+	db4.set();//å…¨éƒ¨ä¸º1
 	cout << "db4.size():" << db4.size() << "  " << db4 << endl;
-	//resetº¯Êı¿ÉÒÔ°ÑÈ«²¿»òÕßÌØµãÎ»ÖÃÖµÉèÖÃÎª0
+	//resetå‡½æ•°å¯ä»¥æŠŠå…¨éƒ¨æˆ–è€…ç‰¹ç‚¹ä½ç½®å€¼è®¾ç½®ä¸º0
 	db4.reset();
 	cout << "db4.size():" << db4.size() << "  " << db4 << endl;
-	//flip·­×ªÈ«²¿»òÕßÖ¸¶¨µÄ¶ş½øÖÆÎ»
+	//flipç¿»è½¬å…¨éƒ¨æˆ–è€…æŒ‡å®šçš„äºŒè¿›åˆ¶ä½
 	db4.flip();
 	cout << "db4.size():" << db4.size() << "  " << db4 << endl;
 	db4.flip(1);
 	cout << "db4.size():" << db4.size() << "  " << db4 << endl;
-	//find_firstºÍfirst_next(·µ»ØµÚÒ»¸ö1µÄÎ»ÖÃ£©
+	//find_firstå’Œfirst_next(è¿”å›ç¬¬ä¸€ä¸ª1çš„ä½ç½®ï¼‰
 	db4.push_back(0);
 	db4.push_back(1);
 	cout << "db4.size():" << db4.size() << "  " << db4 << endl;
@@ -87,54 +87,54 @@ int main()
 	cout << db4.find_next(2) << endl;
 	*/
 
-	//3.unordered(É¢ÁĞÈİÆ÷£©,unordered_map/multimap,unordered_set/multiset
+	//3.unordered(æ•£åˆ—å®¹å™¨ï¼‰,unordered_map/multimap,unordered_set/multiset
 	
 	/*
 	unordered_map<int, std::string> u_m;
-	u_m.emplace(9,"±±¾©");
-	u_m.emplace(6,"ÉÏº£");
-	u_m.emplace(13,"º¼Öİ");
-	u_m.emplace(7,"ËÕÖİ");
-	u_m.insert(pair<int, std::string>(66, "ÄÏ¾©"));
+	u_m.emplace(9,"åŒ—äº¬");
+	u_m.emplace(6,"ä¸Šæµ·");
+	u_m.emplace(13,"æ­å·");
+	u_m.emplace(7,"è‹å·");
+	u_m.insert(pair<int, std::string>(66, "å—äº¬"));
 	for (auto i=u_m.begin();i!=u_m.end();++i)
 	{
 		cout << i->first << ":" << i->second << endl;
 	}
 	*/
 	
-	//4.tuple(ÈİÄÉµÄÃ¿¸öÔªËØÀàĞÍ¿ÉÒÔ²»Í¬£©
-	//exceptin£¬¾­³£ÓÃtuple1´ò°ü´íÎóĞÅÏ¢£¬¿ÉÒÔ¿´ÉÏ´ÎĞ´µÄÒì³£´¦Àí
+	//4.tuple(å®¹çº³çš„æ¯ä¸ªå…ƒç´ ç±»å‹å¯ä»¥ä¸åŒï¼‰
+	//exceptinï¼Œç»å¸¸ç”¨tuple1æ‰“åŒ…é”™è¯¯ä¿¡æ¯ï¼Œå¯ä»¥çœ‹ä¸Šæ¬¡å†™çš„å¼‚å¸¸å¤„ç†
 	/*
 	using int_str = boost::tuple<int, std::string>;
-	int_str i_s={66, "Áîºü"};
+	int_str i_s={66, "ä»¤ç‹"};
 	cout << i_s.get<0>() << endl;
 	cout << i_s.get<1>() << endl;
 	*/
 	
-	//any(Ö»ÄÜÈİÄÉÒ»¸öÔªËØ£¬¿ÉÒÔÊÇÈÎÒâÀàĞÍ£©
+	//any(åªèƒ½å®¹çº³ä¸€ä¸ªå…ƒç´ ï¼Œå¯ä»¥æ˜¯ä»»æ„ç±»å‹ï¼‰
 	/*
-    any a(66);
+        any a(66);
 	any b;
 	cout << "sizeof(a):" << sizeof(a) << endl;
 	cout << a.empty()<< endl;
 	cout << b.empty() << endl;
-	int temp = any_cast<int>(a);//»ñµÃ¿½±´
+	int temp = any_cast<int>(a);//è·å¾—æ‹·è´
 	temp = 12;
 	{
-		int&temp1 = any_cast<int&>(a);//»ñµÃÒıÓÃ
+		int&temp1 = any_cast<int&>(a);//è·å¾—å¼•ç”¨
 		temp1 = 13;
 	}
-	a = "ÖĞ¹ú";
+	a = "ä¸­å›½";
 	*/
 
 
-	//Ó¦ÓÃÔÚÈİÆ÷ÖĞ 
-    /*
+	//åº”ç”¨åœ¨å®¹å™¨ä¸­ 
+        /*
 	vector<boost::any> v;
 	any i(1);
-	any s(string("Áîºü³å"));//¼ÇµÃÈç¹ûÊÇstring£¬²»ÄÜĞ´³Éany s("Áîºü³å");ÕâÊÇC×Ö·û´®¡£ÒªÇø±ğ¿ªÀ´
-	any d(66.64);//Õâ¸öÊÇC×Ö·û´®
-	any c("åĞÒ£");
+	any s(string("ä»¤ç‹å†²"));//è®°å¾—å¦‚æœæ˜¯stringï¼Œä¸èƒ½å†™æˆany s("ä»¤ç‹å†²");è¿™æ˜¯Cå­—ç¬¦ä¸²ã€‚è¦åŒºåˆ«å¼€æ¥
+	any d(66.64);//è¿™ä¸ªæ˜¯Cå­—ç¬¦ä¸²
+	any c("é€é¥");
 	v.push_back(i);
 	v.push_back(s);
 	v.push_back(d);
@@ -144,6 +144,6 @@ int main()
 	cout << any_cast<double>(d) << endl;
 	*/
 
-    cout << "ÓĞ¿ÕÔÙĞ´" << endl;
-	return 0;
+       cout << "æœ‰ç©ºå†å†™" << endl;
+       return 0;
 }
