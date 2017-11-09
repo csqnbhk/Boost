@@ -1,7 +1,7 @@
 /*************************************************************
-          function:boostµÄÖÇÄÜÖ¸Õë
-		  author£ºDemon
-		  Time:2017/11/9
+          function:boostçš„æ™ºèƒ½æŒ‡é’ˆ
+	  authorï¼šDemon
+	  Time:2017/11/9
 *************************************************************/
 #include<iostream>
 #include<boost/smart_ptr.hpp>
@@ -22,12 +22,12 @@ void intrusive_ptr_release(A*p)
 	if (--p->Count==0)
 	{
 		delete p;
-		cout << "ÊÍ·Åintrusive_ptrÖÇÄÜÖ¸Õë" << endl;
+		cout << "é‡Šæ”¾intrusive_ptræ™ºèƒ½æŒ‡é’ˆ" << endl;
 	} 
 }
 struct B:public intrusive_ref_counter<B>
 {
-	~B() { cout << "BÎö¹¹" << endl; }
+	~B() { cout << "Bææ„" << endl; }
 };
 using A_instrusive_ptr = intrusive_ptr<A>;
 using B_intrusive_ptr = intrusive_ptr<B>;
@@ -35,7 +35,7 @@ using B_intrusive_ptr = intrusive_ptr<B>;
 int main()
 {
 
-	//1.scoped_ptr£¨¹ÜÀíÈ¨²»ÄÜ×ªÒÆ£©
+	//1.scoped_ptrï¼ˆç®¡ç†æƒä¸èƒ½è½¬ç§»ï¼‰
 	/*scoped_ptr<int> sp(new int(66));
 	scoped_ptr<int> sp1(new int(88));
 	sp.swap(sp1);
@@ -50,10 +50,10 @@ int main()
 	sa[0] = 11;
 	sa[1] = 22;
 	sa[2] = 366;
-	//sa[3] = 1234;Ô½½ç£¬Î´¶¨Òå¡£²»¹ıÈ¥¿´ÄÚ´æ»¹ÊÇºÜÓĞÒâË¼µÄ
+	//sa[3] = 1234;è¶Šç•Œï¼Œæœªå®šä¹‰ã€‚ä¸è¿‡å»çœ‹å†…å­˜è¿˜æ˜¯å¾ˆæœ‰æ„æ€çš„
 	*/
 
-    //3.shared_array(¿ÉÒÔÊ¹ÓÃshared_ptr<vector>£¬vector<shared_ptr>Ìæ´ú£©
+        //3.shared_array(å¯ä»¥ä½¿ç”¨shared_ptr<vector>ï¼Œvector<shared_ptr>æ›¿ä»£ï¼‰
 	/*shared_array<int> sa(new int[3]);
 	cout << sa.use_count() << endl;
 	shared_array<int> sa1(sa);
@@ -63,7 +63,8 @@ int main()
 	assert(!sa.unique());*/
 
 	//4.intrusive_ptr
-	/*{
+	/*
+	{
 		A_instrusive_ptr p(new A());
 		{
 			assert(p);
@@ -71,19 +72,22 @@ int main()
 			cout << p1->Count << endl;
 		}
 		cout << p->Count << endl;
-	}*/
-	//¼Ì³Ğintrusive_ref_counter<typename T>
-	/*{
-		B_intrusive_ptr p(new B);
+	}
+	*/
+	//ç»§æ‰¿intrusive_ref_counter<typename T>
+	/*
+	{
+	        B_intrusive_ptr p(new B);
 		{
 			assert(p);
 			B_intrusive_ptr p1(p);
 			cout << p1->use_count() << endl;
 		}
 		cout << p->use_count() << endl;
-	}*/
+	}
+	*/
 
-	//5.shared_ptr(±ê×¼¿â£¨shared_ptr,unique_ptr,weak_ptr)Ğ´¹ı¾Í²»Ğ´ÁË£©
+	//5.shared_ptr(æ ‡å‡†åº“ï¼ˆshared_ptr,unique_ptr,weak_ptr)å†™è¿‡å°±ä¸å†™äº†ï¼‰
 
 	//6.weak_ptr
 
