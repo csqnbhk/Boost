@@ -1,0 +1,4 @@
+﻿  main.cpp
+d:\msdev98\lib\boost\random\random\main.cpp(62): warning C4244: “参数”: 从“time_t”转换到“const uint32_t”，可能丢失数据
+  random.vcxproj -> D:\MSDev98\LIB\Boost\random\Debug\random.exe
+  random.vcxproj -> D:\MSDev98\LIB\Boost\random\Debug\random.pdb (Full PDB)
