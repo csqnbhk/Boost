@@ -103,7 +103,7 @@ int main()
 	*/
 	
 	//4.tuple(容纳的每个元素类型可以不同）
-	//exceptin，经常用tuple1打包错误信息，可以看上次写的异常处理
+	//exception，经常用tuple打包错误信息，可以看上次写的异常处理
 	/*
 	using int_str = boost::tuple<int, std::string>;
 	int_str i_s={66, "令狐"};
