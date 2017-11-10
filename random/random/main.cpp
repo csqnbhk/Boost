@@ -1,7 +1,7 @@
 /****************************************************
-            function:boost¿âµÄrandom¿â
-			author:Demon
-			Time:2017/11/9
+            function:booståº“çš„randomåº“
+	    author:Demon
+	    Time:2017/11/9
 ****************************************************/
 #include<iostream>
 #include<boost/random.hpp>
@@ -16,15 +16,15 @@ int main()
 	/*
 	rand48 r48;
 	cout << "min~max," << r48.min() << "~" << r48.max() << endl;
-	r48.seed(time(0));//ÉèÖÃ¸öËæ»úÖÖ×ÓÏÈ
+	r48.seed(time(0));//è®¾ç½®ä¸ªéšæœºç§å­å…ˆ
 	for (auto i = 0;i < 15;i++)
 	{
 		r48();
 	}
-	r48.discard(5);//Õâ¸ö³ÉÔ±º¯Êı¿ÉÒÔÈ¥µôÖ¸¶¨¸öÊıËæ»úÊı
+	r48.discard(5);//è¿™ä¸ªæˆå‘˜å‡½æ•°å¯ä»¥å»æ‰æŒ‡å®šä¸ªæ•°éšæœºæ•°
 	vector<int> v(10);
-	r48.generate(v.begin(), v.end());//Õâ¸ö³ÉÔ±º¯Êı¿ÉÒÔÌî³äÒ»¸öÈİÆ÷
-	cout << "»ñÈ¡µÄÔªËØÈçÏÂ£º" << endl;
+	r48.generate(v.begin(), v.end());//è¿™ä¸ªæˆå‘˜å‡½æ•°å¯ä»¥å¡«å……ä¸€ä¸ªå®¹å™¨
+	cout << "è·å–çš„å…ƒç´ å¦‚ä¸‹ï¼š" << endl;
 	for (auto i : v)
 	{
 		cout << i <<endl;
@@ -42,14 +42,14 @@ int main()
 	cout << "min~max," << lf_19937.min() << "~" << lf_19937.max() << endl;
 	*/
 
-	//4.Ëæ»úÊı·¢ÉúÆ÷µÄ¿½±´
+	//4.éšæœºæ•°å‘ç”Ÿå™¨çš„æ‹·è´
 	/*lagged_fibonacci19937 mt;
 	mt.seed(time(0));
 	cout << mt() << endl;
 	lagged_fibonacci19937 lf_19937(mt);
 	assert(mt() == lf_19937());*/
 
-	//5.Ëæ»úÊı·Ö²¼Æ÷(ĞèÒªÅäºÏËæ»úÊı·¢ÉúÆ÷²Å¿ÉÒÔ¹¤×÷£©
+	//5.éšæœºæ•°åˆ†å¸ƒå™¨(éœ€è¦é…åˆéšæœºæ•°å‘ç”Ÿå™¨æ‰å¯ä»¥å·¥ä½œï¼‰
 	/*mt19937 mt(time(0));
 	random::uniform_int_distribution<int> ui(0, 66);
 	for (auto i = 0;i < 20;++i)
@@ -58,7 +58,7 @@ int main()
 	}
 	cout << endl;*/
 
-	//6.±äÁ¿·¢ÉúÆ÷(×éºÏËæ»úÊı·¢ÉúÆ÷ºÍ·Ö²¼Æ÷£©
+	//6.å˜é‡å‘ç”Ÿå™¨(ç»„åˆéšæœºæ•°å‘ç”Ÿå™¨å’Œåˆ†å¸ƒå™¨ï¼‰
 	/*mt19937 mt(time(0));
 	uniform_smallint<> us(1, 66);
 	variate_generator<mt19937, uniform_smallint<>> gen(mt,us);
@@ -68,8 +68,7 @@ int main()
 	}
 	cout << endl;*/
 
-	//7.²úÉúËæ»úÊı¾İ¿é
-
+	//7.äº§ç”Ÿéšæœºæ•°æ®å—
 
 	return 0;
 }
