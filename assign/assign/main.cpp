@@ -1,7 +1,7 @@
 /*****************************************
-      function:boost¿âµÄassign
-      author£ºDemon
-	  TIME£º2017/11/10
+      function:booståº“çš„assign
+      authorï¼šDemon
+      TIMEï¼š2017/11/10
 *****************************************/
 #include<iostream>
 #include<vector>
@@ -15,9 +15,9 @@ using namespace boost::assign;
 int main()
 {
 
-	////1.list_inserter,ÀàËÆstd::back_inserter
+	////1.list_inserter,ç±»ä¼¼std::back_inserter
 
-	//1.Ê¹ÓÃoperator+=
+	//1.ä½¿ç”¨operator+=
 	/*vector<int> v;
 	v += 1, 3, 5, 7, 9;
 	map<int, std::string> s;
@@ -32,7 +32,7 @@ int main()
 		cout << i.second.c_str << endl;
 	}*/
 
-	//2.Ê¹ÓÃoperator()
+	//2.ä½¿ç”¨operator()
 	/*vector<int> v;
 	push_back(v)(1)(3)(5)(11);
 	list<std::string> L;
@@ -40,10 +40,10 @@ int main()
 	set<double> s;
 	insert(s)(1.55)(1.732)*/
 
-	//3.Ê¹ÓÃoperator£¬
+	//3.ä½¿ç”¨operatorï¼Œ
 	/*
 	vector<int> v;
-	push_back(v),1, 3, 5, 7;//ÀàËÆvector<int> v1{ 1 ,2 ,4 ,5, 67, 34 };
+	push_back(v),1, 3, 5, 7;//ç±»ä¼¼vector<int> v1{ 1 ,2 ,4 ,5, 67, 34 };
 	push_back(v)(2), 4, 6, 8;
 	for (auto i : v)
 	{
@@ -52,33 +52,33 @@ int main()
 	cout << endl;
 	*/
 
-	//4.generic_list£¬ÀàËÆ±ê×¼¿âstd::initializer_list
+	//4.generic_listï¼Œç±»ä¼¼æ ‡å‡†åº“std::initializer_list
 
-	////5.³õÊ¼»¯ÈİÆ÷£¬assign¿âÌá¹©Èı¸ö¹¤³§º¯Êılist_of(),map_list_of()/pair_list_of(),tuple_list_of
+	////5.åˆå§‹åŒ–å®¹å™¨ï¼Œassignåº“æä¾›ä¸‰ä¸ªå·¥å‚å‡½æ•°list_of(),map_list_of()/pair_list_of(),tuple_list_of
 
 	//1.list_of()
 	/*
-	map<int, std::string> m = list_of(make_pair(1, "±±¾©")) (make_pair(2, "ÉÏº£"));
+	map<int, std::string> m = list_of(make_pair(1, "åŒ—äº¬")) (make_pair(2, "ä¸Šæµ·"));
 	vector<int> v = list_of(1)(3)(5);
 	set<int> s = (list_of(10), 20, 30);
-	//¶Ô±È
-	map<int, std::string> std_m1{ {1,"±±¾©"},{2,"ËÕÖİ"} };
+	//å¯¹æ¯”
+	map<int, std::string> std_m1{ {1,"åŒ—äº¬"},{2,"è‹å·"} };
 	vector<int> std_v1{ 1,3,5 };
 	set<int> std_s1{ 10,20,30 };
 	*/
 
 	//2.map_list_of()/pair_list_of()
 	/*
-	map<int, int> m = map_list_of(1, 11)(2, 22)(3, 33);//Ä£°æ²ÎÊıÀàĞÍ£¬Ä£°æº¯Êı¿ÉÒÔ¸ù¾İµ÷ÓÃÊµ²Î×Ô¶¯ÍÆ¶Ï¡£ÏÂÃæÒ²¿ÉÒÔĞ´³öÁË
-	map<int, std::string> m1 = pair_list_of<int, std::string>(1, "ÖĞ¹ú")(2, "Ó¢¹ú")(3, "Ì©¹ú");
+	map<int, int> m = map_list_of(1, 11)(2, 22)(3, 33);//æ¨¡ç‰ˆå‚æ•°ç±»å‹ï¼Œæ¨¡ç‰ˆå‡½æ•°å¯ä»¥æ ¹æ®è°ƒç”¨å®å‚è‡ªåŠ¨æ¨æ–­ã€‚ä¸‹é¢ä¹Ÿå¯ä»¥å†™å‡ºäº†
+	map<int, std::string> m1 = pair_list_of<int, std::string>(1, "ä¸­å›½")(2, "è‹±å›½")(3, "æ³°å›½");
 	*/
 
-	//3.tuple_list_of(»¹²»»áÓÃ£¿£¿£¿£¿£¿£¿£©
+	//3.tuple_list_of(è¿˜ä¸ä¼šç”¨ï¼Ÿï¼Ÿï¼Ÿï¼Ÿï¼Ÿï¼Ÿï¼‰
 	/*
-	using tuple_int_double_string = std::tuple<int, double, std::string>;//ÕâÀïÊÇÓĞ±ê×¼tuple
-	vector<tuple_int_double_string> v = { {1, 1.66, "ÖĞ¹ú"},{3, 2.310, "Ó¢¹ú"} };
+	using tuple_int_double_string = std::tuple<int, double, std::string>;//è¿™é‡Œæ˜¯æœ‰æ ‡å‡†tuple
+	vector<tuple_int_double_string> v = { {1, 1.66, "ä¸­å›½"},{3, 2.310, "è‹±å›½"} };
 	typedef std::tuple<int, std::string> tuple_int_string;
-	tuple_int_string t_i_s = make_tuple(1, "ºú¸è");
+	tuple_int_string t_i_s = make_tuple(1, "èƒ¡æ­Œ");
 	*/
 
 	return 0;
