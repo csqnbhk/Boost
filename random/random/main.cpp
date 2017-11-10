@@ -5,7 +5,6 @@
 ****************************************************/
 #include<iostream>
 #include<boost/random.hpp>
-#include<boost/random.hpp>
 #include<ctime>
 using namespace std;
 using namespace boost;
